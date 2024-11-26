@@ -33,7 +33,7 @@ def read(filename):
                 element_num = [int(num_str) for num_str in line.split()]
             ## 读取所有的坐标
             if nrow >=9 :
-                origin_coord.append([float(num_str) for num_str in line.split()])
+                origin_coord.append([round(float(num_str),8) for num_str in line.split()])
             nrow += 1
         fraction_coord = []
         # 周期性性边界条件
