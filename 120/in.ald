@@ -1,0 +1,197 @@
+#SPPARKS for Al2O3
+#precursor:TMA   co-reactant:H2O
+
+
+#Initialize
+seed 12345
+
+app_style ald/TMA
+
+read_sites data1.ald
+
+sector no
+
+solve_style linear
+
+
+
+
+#Event Set
+
+#Event I
+
+#event	type	from		to		   A			    n	  E(eV)	  coord	  pressureOn	reaction
+
+#AlX3 adsorption
+event   1       OH          OHAlX3     11.91896         0      0       1       1             OH->OHAlX3
+event   1       OH          OHAlX3     11.91896         0      0       2       1             OH->OHAlX3
+
+#AlX3 desorption
+event   1       OHAlX3      OH         1.0E8            0      1.13    1       0             OHAlX3->OH
+event   1       OHAlX3      OH         1.0E8            0      1.15    2       0             OHAlX3->OH
+
+#AlX3 to AlX2
+event   1       OHAlX3      OAlX2      1.0E8            0      0.35    1       0             OHAlX3->OH
+event   1       OHAlX3      OAlX2      1.0E8            0      1.05    2       0             OHAlX3->OH
+
+#water adsorption
+event   1       OAlX2        OAlX2OH2    720.6575188           0      0       1       2             AlX2->OH2AlX2
+
+event   1       OAlXOH       OAlXOHH2O   720.6575188           0      0       1       2             AlXOH->OH2AlXOH
+
+
+event   1       AlX          AlXOH       720.6575188           0      0.26    3       2             AlX->AlXOH
+
+
+#water desorption
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       2       0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       3       0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       4       0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       5       0             OH2AlX2->AlX2
+
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       -8      0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       -7      0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       -6      0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       -5      0             OH2AlX2->AlX2
+
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       -18      0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       -17      0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       -16      0             OH2AlX2->AlX2
+event   1       OH2AlX2      AlX2        1.0E8           0      0.64       -15      0             OH2AlX2->AlX2
+
+#event   1       OH2AlX       AlX         1.0E8           0      0.64       2       0             OH2AlX->AlX
+#event   1       OH2AlX       AlX         1.0E8           0      0.64       3       0             OH2AlX->AlX
+#event   1       OH2AlX       AlX         1.0E8           0      0.64       4       0             OH2AlX->AlX
+#event   1       OH2AlX       AlX         1.0E8           0      0.64       5       0             OH2AlX->AlX
+
+
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       2       0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       3       0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       4       0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       5       0             OH2AlXOH->AlXOH
+
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       -8      0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       -7      0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       -6      0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       -5      0             OH2AlXOH->AlXOH
+
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       -18      0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       -17      0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       -16      0             OH2AlXOH->AlXOH
+event   1       OH2AlXOH     AlXOH       1.0E8           0      1.13       -15      0             OH2AlXOH->AlXOH
+
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       1       0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       2       0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       3       0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       4       0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       5       0             OH2AlX2->AlXOH
+
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -9       0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -8      0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -7      0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -6      0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -5      0             OH2AlX2->AlXOH
+
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -19       0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -18      0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -17      0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -16      0             OH2AlX2->AlXOH
+event   1       OH2AlX2      AlXOH        1.0E8           0      0.61       -15      0             OH2AlX2->AlXOH
+
+#event   1       OH2AlX       AlOH         1.0E8           0      0.63       1       0             OH2AlX->AlOH
+#event   1       OH2AlX       AlOH         1.0E8           0      0.63       2       0             OH2AlX->AlOH
+#event   1       OH2AlX       AlOH         1.0E8           0      0.63       3       0             OH2AlX->AlOH
+#event   1       OH2AlX       AlOH         1.0E8           0      0.63       4       0             OH2AlX->AlOH
+#event   1       OH2AlX       AlOH         1.0E8           0      0.63       5       0             OH2AlX->AlOH
+
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       1       0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       2       0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       3       0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       4       0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       5       0             OH2AlXOH->AlOH2
+
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -9      0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -8      0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -7      0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -6      0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -5      0             OH2AlXOH->AlOH2
+
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -19      0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -18      0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -17      0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -16      0             OH2AlXOH->AlOH2
+event   1       OH2AlXOH     AlOH2        1.0E8           0      0.63       -15      0             OH2AlXOH->AlOH2
+
+#Event II
+
+#event	type	from		to		  from		to		A			       n	E(eV)	coord	pressureOn	reaction
+
+
+#Event III
+
+#event	type	from		to		  from		to		A			        n	E(eV)	coord	pressureOn	reaction
+
+#O to OH
+event   3       O           OH        VAC       VAC     1.0E8               0      0       1       2             AlXOH->OH2AlXOH
+event   3       O           OH        VAC       VAC     1.0E8               0      0       2       2             AlXOH->OH2AlXOH
+event   3       O           OH        VAC       VAC     1.0E8               0      0       3       2             AlXOH->OH2AlXOH
+
+event   3       Al          Al        VAC       OH      1.0E8               0      0       3       2             AlXOH->OH2AlXOH
+
+
+
+#AlX2 to AlX
+event   3       OH          O         AlX2       AlX      1.0E8             0    0.51    1       0           OH+AlX2->O+AlX
+event   3       OH          O         AlX2       AlX      1.0E8             0    0.51    2       0           OH+AlX2->O+AlX
+event   3       OH          O         AlX2       AlX      1.0E8             0    0.51    3       0           OH+AlX2->O+AlX
+event   3       OH          O         AlX2       AlX      1.0E8             0    0.51    4       0           OH+AlX2->O+AlX
+
+
+#AlX to Al
+event   3       OH          O         AlX        Al       1.0E8             0    1.05    2       0           OH+AlX->O+Al
+
+#AlOH2 to AlOH
+event   3       OH          O         AlOH2      AlOH     1.0E8             0    0.64    1       0           OH+AlOH2->O+AlOH
+event   3       OH          O         AlOH2      AlOH     1.0E8             0    0.64    2       0           OH+AlOH2->O+AlOH
+event   3       OH          O         AlOH2      AlOH     1.0E8             0    0.64    3       0           OH+AlOH2->O+AlOH
+event   3       OH          O         AlOH2      AlOH     1.0E8             0    0.64    4       0           OH+AlOH2->O+AlOH
+
+#AlXOH to AlX
+event   3       OH          O         AlXOH      AlX      1.0E8             0    0.795   1       0           OH+AlXOH->O+AlX
+event   3       OH          O         AlXOH      AlX      1.0E8             0    0.795   2       0           OH+AlXOH->O+AlX
+event   3       OH          O         AlXOH      AlX      1.0E8             0    0.795   3       0           OH+AlXOH->O+AlX
+event   3       OH          O         AlXOH      AlX      1.0E8             0    0.795   4       0           OH+AlXOH->O+AlX
+
+#densification
+event   3       VAC         AlX      OAlX        O        1.0E8             0    0.20    3       0           AlOH+VAC->Al+OH
+
+event   3       VAC         OH       AlOH2       AlOH     1.0E8             0    0.20    1       0           AlOH+VAC->Al+OH
+
+event   3       VAC         OH       AlOH        Al       1.0E8             0    0.20    2       0           AlOH+VAC->Al+OH
+
+#Event IV
+#event	type	from		to		  from		to		A			        n	E(eV)	coord	pressureOn	reaction
+
+#AlX2 to AlX
+event   4       OH          O         OAlX2     OAlX   1.0E8                0   0.35    1       0           OH+OAlX2->O+OAlX
+
+#Time Set (s)
+pulse_time		0.5 	0.5  #T1    T3
+purge_time	    5 	    5  #T2    T4  and cycle = T1+T2+T3+T4
+
+
+ 
+
+#Temperature Set (eV)
+temperature	0.03388     #393K
+#temperature	0.03214     #373K
+#temperature    0.03645     #423K
+#temperature    0.04076     #473K
+
+
+#Output
+diag_style      ald/TMA stats yes list events QCM Al O OH VAC AlX AlX2 AlX3 AlXOH AlOH AlOH2 OH2AlX OH2AlX2 OH2AlXOH
+stats           .0005
+dump            1 text .0005 dump.ald  id i1 i2 x y z
+
+run             110

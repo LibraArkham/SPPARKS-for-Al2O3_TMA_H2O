@@ -172,6 +172,7 @@ void AppAldTMA::input_app(char *command, int narg, char **arg)
       else if (strcmp(arg[1],"Al") == 0) vinput[nthree][0] = Al;
       else if (strcmp(arg[1],"AlX3") == 0) vinput[nthree][0] = AlX3;
       else if (strcmp(arg[1],"AlX2") == 0) vinput[nthree][0] = AlX2;
+      else if (strcmp(arg[1],"AlX") == 0) vinput[nthree][0] = AlX;
       else if (strcmp(arg[1],"AlOH2") == 0) vinput[nthree][0] = AlOH2;
       else if (strcmp(arg[1],"VAC") == 0) vinput[nthree][0] = VACANCY;
       else if (strcmp(arg[1],"AlXOH") == 0) vinput[nthree][0] = AlXOH;
@@ -184,6 +185,7 @@ void AppAldTMA::input_app(char *command, int narg, char **arg)
       else if (strcmp(arg[1],"Al") == 0) voutput[nthree][0] = Al;
       else if (strcmp(arg[1],"AlX3") == 0) voutput[nthree][0] = AlX3;
       else if (strcmp(arg[1],"AlX2") == 0) voutput[nthree][0] = AlX2;
+      else if (strcmp(arg[1],"AlX") == 0) voutput[nthree][0] = AlX;
       else if (strcmp(arg[1],"AlOH2") == 0) voutput[nthree][0] = AlOH2;
       else if (strcmp(arg[1],"VAC") == 0) voutput[nthree][0] = VACANCY;
       else if (strcmp(arg[1],"AlXOH") == 0) voutput[nthree][0] = AlXOH;
@@ -195,6 +197,7 @@ void AppAldTMA::input_app(char *command, int narg, char **arg)
       else if (strcmp(arg[1],"Al") == 0) vinput[nthree][1] = Al;
       else if (strcmp(arg[1],"AlX3") == 0) vinput[nthree][1] = AlX3;
       else if (strcmp(arg[1],"AlX2") == 0) vinput[nthree][1] = AlX2;
+      else if (strcmp(arg[1],"AlX") == 0) vinput[nthree][1] = AlX;
       else if (strcmp(arg[1],"AlOH2") == 0) vinput[nthree][1] = AlOH2;
       else if (strcmp(arg[1],"VAC") == 0) vinput[nthree][1] = VACANCY;
       else if (strcmp(arg[1],"AlXOH") == 0) vinput[nthree][1] = AlXOH;
@@ -206,6 +209,7 @@ void AppAldTMA::input_app(char *command, int narg, char **arg)
       else if (strcmp(arg[1],"Al") == 0) voutput[nthree][1] = Al;
       else if (strcmp(arg[1],"AlX3") == 0) voutput[nthree][1] = AlX3;
       else if (strcmp(arg[1],"AlX2") == 0) voutput[nthree][1] = AlX2;
+      else if (strcmp(arg[1],"AlX") == 0) voutput[nthree][1] = AlX;
       else if (strcmp(arg[1],"AlOH2") == 0) voutput[nthree][1] = AlOH2;
       else if (strcmp(arg[1],"VAC") == 0) voutput[nthree][1] = VACANCY;
       else if (strcmp(arg[1],"AlXOH") == 0) voutput[nthree][1] = AlXOH;

@@ -138,9 +138,9 @@ def cal_coordination(data_dic, stric_z, index):
     return coordnation
 
 if __name__ == '__main__':
-    filename = './Al2O3.vasp'
-    ctritical_z = 0.12 #小于ctritical_z填充原子
-    outfile = 'data.ald'
-    element_dict = {'Al':3,'O':1} #元素对应的数字表示
+    filename = './Al2O3_1.vasp'
+    ctritical_z = 0.13 #小于ctritical_z填充原子
+    outfile = 'data1.ald'
+    element_dict = {'Al':2,'O':1} #元素对应的数字表示
     ctritical_distance = 2.5 #近邻列表距离
     run(filename,outfile,ctritical_distance, ctritical_z,element_dict)
