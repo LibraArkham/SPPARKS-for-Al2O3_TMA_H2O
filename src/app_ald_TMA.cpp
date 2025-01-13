@@ -10,7 +10,7 @@
 
 using namespace SPPARKS_NS;
 
-enum{VACANCY,O,Al,OH,AlX3,AlX2,AlX,AlXOH,AlOH2,AlOH};
+enum{VACANCY,O,Al,AlX,AlXOH,AlOH2,AlOH,OH,OHAlX3,OAlX2,OAlX,OAl,OAlX2H2O,OAlXH2O,OAlXOHH2O,OAlXOH,OAlOH2,OAlOH};
 
 
 #define DELTAEVENT 100000
@@ -110,17 +110,46 @@ void AppAldTMA::input_app(char *command, int narg, char **arg)
       if (narg != 9) error->all(FLERR,"Illegal event arg command");
 //type I
       if (strcmp(arg[1],"O") == 0) sinput[none] = O;
-      else if (strcmp(arg[1],"AlX2") == 0) sinput[none] = AlX2;
+      else if (strcmp(arg[1],"OAlX2") == 0) sinput[none] = OAlX2;
+      else if (strcmp(arg[1],"OAlX") == 0) sinput[none] = OAlX;
+      else if (strcmp(arg[1],"OAlXOH") == 0) sinput[none] = OAlXOH;
+      else if (strcmp(arg[1],"OAlOH2") == 0) sinput[none] = OAlOH2;
+      else if (strcmp(arg[1],"OAlOH") == 0) sinput[none] = OAlOH;
+      else if (strcmp(arg[1],"OHAlX3") == 0) sinput[none] = OHAlX3;
+      else if (strcmp(arg[1],"OAlX2H2O") == 0) sinput[none] = OAlX2H2O;
+      else if (strcmp(arg[1],"OAlXH2O") == 0) sinput[none] = OAlXH2O;
+      else if (strcmp(arg[1],"OAlXOHH2O") == 0) sinput[none] = OAlXOHH2O;
+      else if (strcmp(arg[1],"OH") == 0) sinput[none] = OH;
+      else if (strcmp(arg[1],"OAl") == 0) sinput[none] = OAl;
+      else if (strcmp(arg[1],"Al") == 0) sinput[none] = Al;
+      else if (strcmp(arg[1],"VAC") == 0) sinput[none] = VACANCY;
       else if (strcmp(arg[1],"AlX") == 0) sinput[none] = AlX;
-
+      else if (strcmp(arg[1],"AlXOH") == 0) sinput[none] = AlXOH;
+      else if (strcmp(arg[1],"AlOH2") == 0) sinput[none] = AlOH2;
+      else if (strcmp(arg[1],"AlOH") == 0) sinput[none] = AlOH;
 
       
       else error->all(FLERR,"Illegal event arg1 command");
 
       if (strcmp(arg[2],"O") == 0) soutput[none] = O;
+      else if (strcmp(arg[2],"OAlX2") == 0) soutput[none] = OAlX2;
+      else if (strcmp(arg[2],"OAlX") == 0) soutput[none] = OAlX;
+      else if (strcmp(arg[2],"OAlXOH") == 0) soutput[none] = OAlXOH;
+      else if (strcmp(arg[2],"OAlOH2") == 0) soutput[none] = OAlOH2;
+      else if (strcmp(arg[2],"OAlOH") == 0) soutput[none] = OAlOH;
+      else if (strcmp(arg[2],"OHAlX3") == 0) soutput[none] = OHAlX3;
+      else if (strcmp(arg[2],"OAlX2H2O") == 0) soutput[none] = OAlX2H2O;
+      else if (strcmp(arg[2],"OAlXH2O") == 0) soutput[none] = OAlXH2O;
+      else if (strcmp(arg[2],"OAlXOHH2O") == 0) soutput[none] = OAlXOHH2O;
+      else if (strcmp(arg[2],"OH") == 0) soutput[none] = OH;
+      else if (strcmp(arg[2],"OAl") == 0) soutput[none] = OAl;
+      else if (strcmp(arg[2],"Al") == 0) soutput[none] = Al;
+      else if (strcmp(arg[2],"VAC") == 0) soutput[none] = VACANCY;
+      else if (strcmp(arg[2],"AlX") == 0) soutput[none] = AlX;
       else if (strcmp(arg[2],"AlXOH") == 0) soutput[none] = AlXOH;
+      else if (strcmp(arg[2],"AlOH2") == 0) soutput[none] = AlOH2;
+      else if (strcmp(arg[2],"AlOH") == 0) soutput[none] = AlOH;
 
-      
       else error->all(FLERR,"Illegal event command");
       
       sA[none] = atof(arg[3]);
@@ -168,52 +197,88 @@ void AppAldTMA::input_app(char *command, int narg, char **arg)
     }else if (rstyle == 3) {
       if (narg != 11) error->all(FLERR,"Illegal event command31");
  
-      if (strcmp(arg[1],"O") == 0) vinput[nthree][0] = O;
-      else if (strcmp(arg[1],"Al") == 0) vinput[nthree][0] = Al;
-      else if (strcmp(arg[1],"AlX3") == 0) vinput[nthree][0] = AlX3;
-      else if (strcmp(arg[1],"AlX2") == 0) vinput[nthree][0] = AlX2;
-      else if (strcmp(arg[1],"AlX") == 0) vinput[nthree][0] = AlX;
-      else if (strcmp(arg[1],"AlOH2") == 0) vinput[nthree][0] = AlOH2;
-      else if (strcmp(arg[1],"VAC") == 0) vinput[nthree][0] = VACANCY;
-      else if (strcmp(arg[1],"AlXOH") == 0) vinput[nthree][0] = AlXOH;
-      else if (strcmp(arg[1],"AlOH") == 0) vinput[nthree][0] = AlOH;
+      if (strcmp(arg[1],"O") == 0) vinput[nthree][0]= O;
+      else if (strcmp(arg[1],"OAlX2") == 0) vinput[nthree][0]= OAlX2;
+      else if (strcmp(arg[1],"OAlX") == 0) vinput[nthree][0]= OAlX;
+      else if (strcmp(arg[1],"OAlXOH") == 0) vinput[nthree][0]= OAlXOH;
+      else if (strcmp(arg[1],"OAlOH2") == 0) vinput[nthree][0]= OAlOH2;
+      else if (strcmp(arg[1],"OAlOH") == 0) vinput[nthree][0]= OAlOH;
+      else if (strcmp(arg[1],"OHAlX3") == 0) vinput[nthree][0]= OHAlX3;
+      else if (strcmp(arg[1],"OAlX2H2O") == 0) vinput[nthree][0]= OAlX2H2O;
+      else if (strcmp(arg[1],"OAlXH2O") == 0) vinput[nthree][0]= OAlXH2O;
+      else if (strcmp(arg[1],"OAlXOHH2O") == 0) vinput[nthree][0]= OAlXOHH2O;
+      else if (strcmp(arg[1],"OH") == 0) vinput[nthree][0]= OH;
+      else if (strcmp(arg[1],"OAl") == 0) vinput[nthree][0]= OAl;
+      else if (strcmp(arg[1],"Al") == 0) vinput[nthree][0]= Al;
+      else if (strcmp(arg[1],"VAC") == 0) vinput[nthree][0]= VACANCY;
+      else if (strcmp(arg[1],"AlX") == 0) vinput[nthree][0]= AlX;
+      else if (strcmp(arg[1],"AlXOH") == 0) vinput[nthree][0]= AlXOH;
+      else if (strcmp(arg[1],"AlOH") == 0) vinput[nthree][0]= AlOH;
+      else if (strcmp(arg[1],"AlOH2") == 0) vinput[nthree][0]= AlOH2;
 
       else error->all(FLERR,"Illegal event command32");
 
 
-      if (strcmp(arg[1],"O") == 0) voutput[nthree][0] = O;
-      else if (strcmp(arg[1],"Al") == 0) voutput[nthree][0] = Al;
-      else if (strcmp(arg[1],"AlX3") == 0) voutput[nthree][0] = AlX3;
-      else if (strcmp(arg[1],"AlX2") == 0) voutput[nthree][0] = AlX2;
-      else if (strcmp(arg[1],"AlX") == 0) voutput[nthree][0] = AlX;
-      else if (strcmp(arg[1],"AlOH2") == 0) voutput[nthree][0] = AlOH2;
-      else if (strcmp(arg[1],"VAC") == 0) voutput[nthree][0] = VACANCY;
-      else if (strcmp(arg[1],"AlXOH") == 0) voutput[nthree][0] = AlXOH;
-      else if (strcmp(arg[1],"AlOH") == 0) voutput[nthree][0] = AlOH;
+      if (strcmp(arg[2],"O") == 0) voutput[nthree][0]= O;
+      else if (strcmp(arg[2],"OAlX2") == 0) voutput[nthree][0]= OAlX2;
+      else if (strcmp(arg[2],"OAlX") == 0) voutput[nthree][0]= OAlX;
+      else if (strcmp(arg[2],"OAlXOH") == 0) voutput[nthree][0]= OAlXOH;
+      else if (strcmp(arg[2],"OAlOH2") == 0) voutput[nthree][0]= OAlOH2;
+      else if (strcmp(arg[2],"OAlOH") == 0) voutput[nthree][0]= OAlOH;
+      else if (strcmp(arg[2],"OHAlX3") == 0) voutput[nthree][0]= OHAlX3;
+      else if (strcmp(arg[2],"OAlX2H2O") == 0) voutput[nthree][0]= OAlX2H2O;
+      else if (strcmp(arg[2],"OAlXH2O") == 0) voutput[nthree][0]= OAlXH2O;
+      else if (strcmp(arg[2],"OAlXOHH2O") == 0) voutput[nthree][0]= OAlXOHH2O;
+      else if (strcmp(arg[2],"OH") == 0) voutput[nthree][0]= OH;
+      else if (strcmp(arg[2],"OAl") == 0) voutput[nthree][0]= OAl;
+      else if (strcmp(arg[2],"Al") == 0) voutput[nthree][0]= Al;
+      else if (strcmp(arg[2],"VAC") == 0) voutput[nthree][0]= VACANCY;
+      else if (strcmp(arg[2],"AlX") == 0) voutput[nthree][0]= AlX;
+      else if (strcmp(arg[2],"AlXOH") == 0) voutput[nthree][0]= AlXOH;
+      else if (strcmp(arg[2],"AlOH") == 0) voutput[nthree][0]= AlOH;
+      else if (strcmp(arg[2],"AlOH2") == 0) voutput[nthree][0]= AlOH2;
 
       else error->all(FLERR,"Illegal event command33");
       
-      if (strcmp(arg[1],"O") == 0) vinput[nthree][1] = O;
-      else if (strcmp(arg[1],"Al") == 0) vinput[nthree][1] = Al;
-      else if (strcmp(arg[1],"AlX3") == 0) vinput[nthree][1] = AlX3;
-      else if (strcmp(arg[1],"AlX2") == 0) vinput[nthree][1] = AlX2;
-      else if (strcmp(arg[1],"AlX") == 0) vinput[nthree][1] = AlX;
-      else if (strcmp(arg[1],"AlOH2") == 0) vinput[nthree][1] = AlOH2;
-      else if (strcmp(arg[1],"VAC") == 0) vinput[nthree][1] = VACANCY;
-      else if (strcmp(arg[1],"AlXOH") == 0) vinput[nthree][1] = AlXOH;
-      else if (strcmp(arg[1],"AlOH") == 0) vinput[nthree][1] = AlOH;
+      if (strcmp(arg[3],"O") == 0) vinput[nthree][1]= O;
+      else if (strcmp(arg[3],"OAlX2") == 0) vinput[nthree][1]= OAlX2;
+      else if (strcmp(arg[3],"OAlX") == 0) vinput[nthree][1]= OAlX;
+      else if (strcmp(arg[3],"OAlXOH") == 0) vinput[nthree][1]= OAlXOH;
+      else if (strcmp(arg[3],"OAlOH2") == 0) vinput[nthree][1]= OAlOH2;
+      else if (strcmp(arg[3],"OAlOH") == 0) vinput[nthree][1]= OAlOH;
+      else if (strcmp(arg[3],"OHAlX3") == 0) vinput[nthree][1]= OHAlX3;
+      else if (strcmp(arg[3],"OAlX2H2O") == 0) vinput[nthree][1]= OAlX2H2O;
+      else if (strcmp(arg[3],"OAlXH2O") == 0) vinput[nthree][1]= OAlXH2O;
+      else if (strcmp(arg[3],"OAlXOHH2O") == 0) vinput[nthree][1]= OAlXOHH2O;
+      else if (strcmp(arg[3],"OH") == 0) vinput[nthree][1]= OH;
+      else if (strcmp(arg[3],"OAl") == 0) vinput[nthree][1]= OAl;
+      else if (strcmp(arg[3],"Al") == 0) vinput[nthree][1]= Al;
+      else if (strcmp(arg[3],"VAC") == 0) vinput[nthree][1]= VACANCY;
+      else if (strcmp(arg[3],"AlX") == 0) vinput[nthree][1]= AlX;
+      else if (strcmp(arg[3],"AlXOH") == 0) vinput[nthree][1]= AlXOH;
+      else if (strcmp(arg[3],"AlOH") == 0) vinput[nthree][1]= AlOH;
+      else if (strcmp(arg[3],"AlOH2") == 0) vinput[nthree][1]= AlOH2;
 
       else error->all(FLERR,"Illegal event command34");
-
-      if (strcmp(arg[1],"O") == 0) voutput[nthree][1] = O;
-      else if (strcmp(arg[1],"Al") == 0) voutput[nthree][1] = Al;
-      else if (strcmp(arg[1],"AlX3") == 0) voutput[nthree][1] = AlX3;
-      else if (strcmp(arg[1],"AlX2") == 0) voutput[nthree][1] = AlX2;
-      else if (strcmp(arg[1],"AlX") == 0) voutput[nthree][1] = AlX;
-      else if (strcmp(arg[1],"AlOH2") == 0) voutput[nthree][1] = AlOH2;
-      else if (strcmp(arg[1],"VAC") == 0) voutput[nthree][1] = VACANCY;
-      else if (strcmp(arg[1],"AlXOH") == 0) voutput[nthree][1] = AlXOH;
-      else if (strcmp(arg[1],"AlOH") == 0) voutput[nthree][1] = AlOH;
+      
+      if (strcmp(arg[4],"O") == 0) voutput[nthree][1]= O;
+      else if (strcmp(arg[4],"OAlX2") == 0) voutput[nthree][1]= OAlX2;
+      else if (strcmp(arg[4],"OAlX") == 0) voutput[nthree][1]= OAlX;
+      else if (strcmp(arg[4],"OAlXOH") == 0) voutput[nthree][1]= OAlXOH;
+      else if (strcmp(arg[4],"OAlOH2") == 0) voutput[nthree][1]= OAlOH2;
+      else if (strcmp(arg[4],"OAlOH") == 0) voutput[nthree][1]= OAlOH;
+      else if (strcmp(arg[4],"OAlX4") == 0) voutput[nthree][1]= OHAlX3;
+      else if (strcmp(arg[4],"OAlX2H2O") == 0) voutput[nthree][1]= OAlX2H2O;
+      else if (strcmp(arg[4],"OAlXH2O") == 0) voutput[nthree][1]= OAlXH2O;
+      else if (strcmp(arg[4],"OAlXOHH2O") == 0) voutput[nthree][1]= OAlXOHH2O;
+      else if (strcmp(arg[4],"OH") == 0) voutput[nthree][1]= OH;
+      else if (strcmp(arg[4],"OAl") == 0) voutput[nthree][1]= OAl;
+      else if (strcmp(arg[4],"Al") == 0) voutput[nthree][1]= Al;
+      else if (strcmp(arg[4],"VAC") == 0) voutput[nthree][1]= VACANCY;
+      else if (strcmp(arg[4],"AlX") == 0) voutput[nthree][1]= AlX;
+      else if (strcmp(arg[4],"AlXOH") == 0) voutput[nthree][1]= AlXOH;
+      else if (strcmp(arg[4],"AlOH") == 0) voutput[nthree][1]= AlOH;
+      else if (strcmp(arg[4],"AlOH2") == 0) voutput[nthree][1]= AlOH2;
 
       else error->all(FLERR,"Illegal event command35");
 
@@ -225,7 +290,103 @@ void AppAldTMA::input_app(char *command, int narg, char **arg)
       vpresson[nthree] = atoi(arg[9]);
       nthree++;
 
-    } else error->all(FLERR,"Illegal event command37");
+//type 4
+    }else if (rstyle == 3) {
+      if (narg != 11) error->all(FLERR,"Illegal event command37");
+ 
+      if (strcmp(arg[1],"O") == 0) finput[nfour][0]= O;
+      else if (strcmp(arg[1],"OAlX2") == 0) finput[nfour][0]= OAlX2;
+      else if (strcmp(arg[1],"OAlX") == 0) finput[nfour][0]= OAlX;
+      else if (strcmp(arg[1],"OAlXOH") == 0) finput[nfour][0]= OAlXOH;
+      else if (strcmp(arg[1],"OAlOH2") == 0) finput[nfour][0]= OAlOH2;
+      else if (strcmp(arg[1],"OAlOH") == 0) finput[nfour][0]= OAlOH;
+      else if (strcmp(arg[1],"OHAlX3") == 0) finput[nfour][0]= OHAlX3;
+      else if (strcmp(arg[1],"OAlX2H2O") == 0) finput[nfour][0]= OAlX2H2O;
+      else if (strcmp(arg[1],"OAlXH2O") == 0) finput[nfour][0]= OAlXH2O;
+      else if (strcmp(arg[1],"OAlXOHH2O") == 0) finput[nfour][0]= OAlXOHH2O;
+      else if (strcmp(arg[1],"OH") == 0) finput[nfour][0]= OH;
+      else if (strcmp(arg[1],"OAl") == 0) finput[nfour][0]= OAl;
+      else if (strcmp(arg[1],"Al") == 0) finput[nfour][0]= Al;
+      else if (strcmp(arg[1],"VAC") == 0) finput[nfour][0]= VACANCY;
+      else if (strcmp(arg[1],"AlX") == 0) finput[nfour][0]= AlX;
+      else if (strcmp(arg[1],"AlXOH") == 0) finput[nfour][0]= AlXOH;
+      else if (strcmp(arg[1],"AlOH") == 0) finput[nfour][0]= AlOH;
+      else if (strcmp(arg[1],"AlOH2") == 0) finput[nfour][0]= AlOH2;
+
+      else error->all(FLERR,"Illegal event command38");
+
+
+      if (strcmp(arg[2],"O") == 0) foutput[nfour][0]= O;
+      else if (strcmp(arg[2],"OAlX2") == 0) foutput[nfour][0]= OAlX2;
+      else if (strcmp(arg[2],"OAlX") == 0) foutput[nfour][0]= OAlX;
+      else if (strcmp(arg[2],"OAlXOH") == 0) foutput[nfour][0]= OAlXOH;
+      else if (strcmp(arg[2],"OAlOH2") == 0) foutput[nfour][0]= OAlOH2;
+      else if (strcmp(arg[2],"OAlOH") == 0) foutput[nfour][0]= OAlOH;
+      else if (strcmp(arg[2],"OHAlX3") == 0) foutput[nfour][0]= OHAlX3;
+      else if (strcmp(arg[2],"OAlX2H2O") == 0) foutput[nfour][0]= OAlX2H2O;
+      else if (strcmp(arg[2],"OAlXH2O") == 0) foutput[nfour][0]= OAlXH2O;
+      else if (strcmp(arg[2],"OAlXOHH2O") == 0) foutput[nfour][0]= OAlXOHH2O;
+      else if (strcmp(arg[2],"OH") == 0) foutput[nfour][0]= OH;
+      else if (strcmp(arg[2],"OAl") == 0) foutput[nfour][0]= OAl;
+      else if (strcmp(arg[2],"Al") == 0) foutput[nfour][0]= Al;
+      else if (strcmp(arg[2],"VAC") == 0) foutput[nfour][0]= VACANCY;
+      else if (strcmp(arg[2],"AlX") == 0) foutput[nfour][0]= AlX;
+      else if (strcmp(arg[2],"AlXOH") == 0) foutput[nfour][0]= AlXOH;
+      else if (strcmp(arg[2],"AlOH") == 0) foutput[nfour][0]= AlOH;
+      else if (strcmp(arg[2],"AlOH2") == 0) foutput[nfour][0]= AlOH2;
+
+      else error->all(FLERR,"Illegal event command39");
+      
+      if (strcmp(arg[3],"O") == 0) finput[nfour][1]= O;
+      else if (strcmp(arg[3],"OAlX2") == 0) finput[nfour][1]= OAlX2;
+      else if (strcmp(arg[3],"OAlX") == 0) finput[nfour][1]= OAlX;
+      else if (strcmp(arg[3],"OAlXOH") == 0) finput[nfour][1]= OAlXOH;
+      else if (strcmp(arg[3],"OAlOH2") == 0) finput[nfour][1]= OAlOH2;
+      else if (strcmp(arg[3],"OAlOH") == 0) finput[nfour][1]= OAlOH;
+      else if (strcmp(arg[3],"OHAlX3") == 0) finput[nfour][1]= OHAlX3;
+      else if (strcmp(arg[3],"OAlX2H2O") == 0) finput[nfour][1]= OAlX2H2O;
+      else if (strcmp(arg[3],"OAlXH2O") == 0) finput[nfour][1]= OAlXH2O;
+      else if (strcmp(arg[3],"OAlXOHH2O") == 0) finput[nfour][1]= OAlXOHH2O;
+      else if (strcmp(arg[3],"OH") == 0) finput[nfour][1]= OH;
+      else if (strcmp(arg[3],"OAl") == 0) finput[nfour][1]= OAl;
+      else if (strcmp(arg[3],"Al") == 0) finput[nfour][1]= Al;
+      else if (strcmp(arg[3],"VAC") == 0) finput[nfour][1]= VACANCY;
+      else if (strcmp(arg[3],"AlX") == 0) finput[nfour][1]= AlX;
+      else if (strcmp(arg[3],"AlXOH") == 0) finput[nfour][1]= AlXOH;
+      else if (strcmp(arg[3],"AlOH") == 0) finput[nfour][1]= AlOH;
+      else if (strcmp(arg[3],"AlOH2") == 0) finput[nfour][1]= AlOH2;
+
+      else error->all(FLERR,"Illegal event command40");
+      
+      if (strcmp(arg[4],"O") == 0) foutput[nfour][1]= O;
+      else if (strcmp(arg[4],"OAlX2") == 0) foutput[nfour][1]= OAlX2;
+      else if (strcmp(arg[4],"OAlX") == 0) foutput[nfour][1]= OAlX;
+      else if (strcmp(arg[4],"OAlXOH") == 0) foutput[nfour][1]= OAlXOH;
+      else if (strcmp(arg[4],"OAlOH2") == 0) foutput[nfour][1]= OAlOH2;
+      else if (strcmp(arg[4],"OAlOH") == 0) foutput[nfour][1]= OAlOH;
+      else if (strcmp(arg[4],"OAlX4") == 0) foutput[nfour][1]= OHAlX3;
+      else if (strcmp(arg[4],"OAlX2H2O") == 0) foutput[nfour][1]= OAlX2H2O;
+      else if (strcmp(arg[4],"OAlXH2O") == 0) foutput[nfour][1]= OAlXH2O;
+      else if (strcmp(arg[4],"OAlXOHH2O") == 0) foutput[nfour][1]= OAlXOHH2O;
+      else if (strcmp(arg[4],"OH") == 0) foutput[nfour][1]= OH;
+      else if (strcmp(arg[4],"OAl") == 0) foutput[nfour][1]= OAl;
+      else if (strcmp(arg[4],"Al") == 0) foutput[nfour][1]= Al;
+      else if (strcmp(arg[4],"VAC") == 0) foutput[nfour][1]= VACANCY;
+      else if (strcmp(arg[4],"AlX") == 0) foutput[nfour][1]= AlX;
+      else if (strcmp(arg[4],"AlXOH") == 0) foutput[nfour][1]= AlXOH;
+      else if (strcmp(arg[4],"AlOH") == 0) foutput[nfour][1]= AlOH;
+      else if (strcmp(arg[4],"AlOH2") == 0) foutput[nfour][1]= AlOH2;
+
+      else error->all(FLERR,"Illegal event command41");
+
+      vA[nfour] = atof(arg[5]);
+      vexpon[nfour] = atoi(arg[6]);
+      if (vexpon[nfour] != 0.0) error->warning(FLERR,"Illegal vexpon command42");
+      vrate[nfour] = atof(arg[7]);
+      vcoord[nfour] = atoi(arg[8]);
+      vpresson[nfour] = atoi(arg[9]);
+      nfour++;
+    } else error->all(FLERR,"Illegal event command43");
   } 
   else if (strcmp(command,"pulse_time") == 0) {
     if (narg != 2) error->all(FLERR,"Illegal pulse time");
@@ -327,7 +488,7 @@ double AppAldTMA::site_energy(int i)
 
 double AppAldTMA::site_propensity(int i)
 {
-  int j,k,m;
+  int j,k,m,l,o,p;
 
 
    clear_events(i);
@@ -393,7 +554,7 @@ double AppAldTMA::site_propensity(int i)
       // std::cout<<"test3!!!"<<std::endl;
       int coordi = coord[i] < 0 ? (coord[i] % 10 + 10) : (coord[i] % 10);
       int coordj = coord[j] < 0 ? (coord[j] % 10 + 10) : (coord[j] % 10);
-      if (element[i] == vinput[m][0] && element[j] == vinput[m][1] && (coord[i] == vcoord[m] || vcoord[m] == -1 ) && (vpresson[m] == pressureOn || vpresson[m] == 0) && (coordi < numneigh[i]) && (coordj < numneigh[j])) {
+      if (element[i] == vinput[m][0] && element[j] == vinput[m][1] && (coord[i] == vcoord[m] || vcoord[m] == -1 ) && (vpresson[m] == pressureOn || vpresson[m] == 0) && (coordi <= numneigh[i]) && (coordj <= numneigh[j])) {
         // std::cout<<"coord[j]:"<<coord[j]<<std::endl;
         // std::cout<<"numneigh[j]:"<<numneigh[j]<<std::endl;
         add_event(i,3,m,vpropensity[m],j,-1,-1);
@@ -406,18 +567,24 @@ double AppAldTMA::site_propensity(int i)
     j = neighbor[i][jj];
       for (int kk = 0; kk < numneigh[j]; kk++) {
         k = neighbor[j][kk];
-          for (int gg = 0; gg < numneigh[k]; gg++) {
-            int g = neighbor[k][gg];
+         for (int ll = 0; ll < numneigh[k]; ll++) {
+        l = neighbor[k][ll];
+         for (int oo = 0; oo < numneigh[l]; oo++) {
+        o = neighbor[l][oo];
+         for (int pp = 0; pp < numneigh[o]; pp++) {
+        p = neighbor[o][pp];
+          for (int gg = 0; gg < numneigh[p]; gg++) {
+            int g = neighbor[p][gg];
             for (m = 0; m < nfour; m++) {
               int coordi = coord[i] < 0 ? (coord[i] % 10 + 10) : (coord[i] % 10);
-              int coordg = coord[j] < 0 ? (coord[g] % 10 + 10) : (coord[g] % 10);
+              int coordg = coord[g] < 0 ? (coord[g] % 10 + 10) : (coord[g] % 10);
               if (element[i] == finput[m][0] && element[g] == finput[m][1] && (coord[i] == fcoord[m] || fcoord[m] == -1 ) && (fpresson[m] == pressureOn || fpresson[m] == 0) && (coordi<=numneigh[i]) && (coordg<numneigh[g])) {
                 add_event(i,4,m,fpropensity[m],-1,-1,g);
                 proball += fpropensity[m];
               }
             }
         }
-    }
+    }}}}
   }
   // vacant event:5
   add_event(i,5,-1,0.1,-1,-1,-1);
@@ -498,29 +665,29 @@ void AppAldTMA::site_event(int i, class RandomPark *random)
 
 
 // mask 
-   if (rstyle == 1) {
-    if (elcoord_i == Ta && element[i] == OTa) {
-     put_mask_2(i);
+   /*if (rstyle == 1) {
+    if (elcoord_i == AlX2H2O && element[i] == AlXOH) {
+     remove_mask(i);
     }
-    else if (elcoord_i == OTa && element[i] == Ta) {
-      remove_mask_2(i);
-    }
-   else if ((elcoord_i == O || elcoord_i == OH) && (element[i] == TaX5O || element[i] == TaX5OH)) {
-     //std::cout<<"mask!!!"<<std::endl;
-    put_mask(i);
-    }
-    else if ((elcoord_i == TaX5O || elcoord_i == TaX5OH) && (element[i] == O || element[i] == OH)) {
+    else if (elcoord_i == AlX2H2O && element[i] == AlXOH) {
       remove_mask(i);
     }
-    else if ((elcoord_i == TaX4O || elcoord_i == TaX3O) && element[i] == TaO) {
-      remove_mask(i);
-    }
+  
   }
   else if (rstyle == 3) {
-    if (elcoord_i == OTa && element[i] == Ta) {
-      remove_mask_2(i);
+    if (elcoord_i == VACANCY && element[i] == AlX3) {
+      put_mask(i);
     }
-  }
+    else if (elcoord_i == AlX3 && element[i] == VACANCY) {
+      remove_mask(i);
+    }
+    else if (elcoord_j == AlX2 && element[j] == AlX) {
+      remove_mask(j);
+    }
+    else if (elcoord_i == OAl && element[i] == OH) {
+      put_mask(i);
+    }
+  }*/
  
   count_coord(i);
   propensity[isite] = site_propensity(i);
@@ -699,21 +866,21 @@ void AppAldTMA::grow_reactions(int rstyle)
   else if (rstyle == 4) {
     int n = nfour + 1;
     frate = (double *)
-      memory->srealloc(frate,n*sizeof(double),"app/ald/hfo2:frate");
+      memory->srealloc(frate,n*sizeof(double),"app/ald/TMA:frate");
     fpropensity = (double *)
-      memory->srealloc(fpropensity,n*sizeof(double),"app/ald/hfo2:fpropensity");
-    finput = memory->grow(finput,n,2,"app/ald/hfo2:finput");
-    foutput = memory->grow(foutput,n,2,"app/ald/hfo2:foutput");
+      memory->srealloc(fpropensity,n*sizeof(double),"app/ald/TMA:fpropensity");
+    finput = memory->grow(finput,n,2,"app/ald/TMA:finput");
+    foutput = memory->grow(foutput,n,2,"app/ald/TMA:foutput");
     fcount = (int *)
-      memory->srealloc(fcount,n*sizeof(int),"app/ald/hfo2:fcount");
+      memory->srealloc(fcount,n*sizeof(int),"app/ald/TMA:fcount");
     fA = (double *)
-      memory->srealloc(fA,n*sizeof(double),"app/ald/hfo2:fA");
+      memory->srealloc(fA,n*sizeof(double),"app/ald/TMA:fA");
     fexpon = (int *)
-      memory->srealloc(fexpon,n*sizeof(int),"app/ald/hfo2:fexpon");
+      memory->srealloc(fexpon,n*sizeof(int),"app/ald/TMA:fexpon");
     fcoord = (int *)
-      memory->srealloc(fcoord,n*sizeof(int),"app/ald/hfo2:fcoord");
+      memory->srealloc(fcoord,n*sizeof(int),"app/ald/TMA:fcoord");
     fpresson = (int *)
-      memory->srealloc(fpresson,n*sizeof(int),"app/ald/hfo2:fpresson");
+      memory->srealloc(fpresson,n*sizeof(int),"app/ald/TMA:fpresson");
   }
 }
 
@@ -835,7 +1002,7 @@ void AppAldTMA::count_coordO(int i)
 			isite = i2site[ss];
 			if (i==ss)  continue;
 			if (isite >= 0 && echeck[isite] == 0) {
-			  if ( element[ss] >= O && element[ss] <= TaX4O ) {fullO++;}
+			  if ( element[ss] >= O && element[ss] <= OAlOH ) {fullO++;}
 			  else if (element[ss] == VACANCY) {emptyO++;}
 		          esites[nsites++] = isite;
 		          echeck[isite] = 1;
@@ -864,7 +1031,7 @@ void AppAldTMA::put_mask(int i) {
     if (isite >= 0 && echeck[isite] == 0) {
         echeck[isite] = 1;
         esites[nsites++] = isite;
-        coord[nn] -= 10;
+        coord[nn] -= 0;
         // std::cout << "put mask " << i << std::endl;
     }
     for (int ss = 0; ss < numneigh[nn]; ss++){
@@ -874,8 +1041,26 @@ void AppAldTMA::put_mask(int i) {
         echeck[isite] = 1;
         esites[nsites++] = isite;
         coord[nnn] -= 10;
-      }
-    }
+          }
+      for (int sss = 0; sss < numneigh[nnn]; sss++){
+        int nnnn = neighbor[nnn][sss];
+        int isite = i2site[nnnn];
+        if (isite >= 0 && echeck[isite] == 0) {
+          echeck[isite] = 1;
+          esites[nsites++] = isite;
+          coord[nnnn] -= 0;
+        }
+        for (int ssss = 0; ssss < numneigh[nnnn]; ssss++){
+          int nnnnn = neighbor[nnnn][ssss];
+          int isite = i2site[nnnnn];
+          if (isite >= 0 && echeck[isite] == 0) {
+            echeck[isite] = 1;
+            esites[nsites++] = isite;
+            coord[nnnnn] -= 0;
+        }
+        }
+  }
+  }
   }
   // for (int s = 0; s < numneigh[i]; s++) {
   //   int nn = neighbor[i][s];
@@ -912,10 +1097,13 @@ void AppAldTMA::remove_mask(int i) {
   for (int s = 0; s < numneigh[i]; s++) {
     int nn = neighbor[i][s];
     int isite = i2site[nn];
+    // std::cout<<"isite:"<<isite<<std::endl;
+    // std::cout<<"echeck:"<<echeck[isite]<<std::endl;
     if (isite >= 0 && echeck[isite] == 0) {
         echeck[isite] = 1;
         esites[nsites++] = isite;
-        coord[nn] += 10;
+        coord[nn] += 0;
+        // std::cout << "put mask " << i << std::endl;
     }
     for (int ss = 0; ss < numneigh[nn]; ss++){
       int nnn = neighbor[nn][ss];
@@ -924,8 +1112,26 @@ void AppAldTMA::remove_mask(int i) {
         echeck[isite] = 1;
         esites[nsites++] = isite;
         coord[nnn] += 10;
-      }
-    }
+          }
+      for (int sss = 0; sss < numneigh[nnn]; sss++){
+        int nnnn = neighbor[nnn][sss];
+        int isite = i2site[nnnn];
+        if (isite >= 0 && echeck[isite] == 0) {
+          echeck[isite] = 1;
+          esites[nsites++] = isite;
+          coord[nnnn] += 0;
+        }
+        for (int ssss = 0; ssss < numneigh[nnnn]; ssss++){
+          int nnnnn = neighbor[nnnn][ssss];
+          int isite = i2site[nnnnn];
+          if (isite >= 0 && echeck[isite] == 0) {
+            echeck[isite] = 1;
+            esites[nsites++] = isite;
+            coord[nnnnn] += 0;
+        }
+        }
+  }
+  }
   }
   // for (int s = 0; s < numneigh[i]; s++) {
   //   int nn = neighbor[i][s];

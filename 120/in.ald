@@ -39,7 +39,6 @@ event   1       OAlX2        OAlX2OH2    720.6575188           0      0       1 
 
 event   1       OAlXOH       OAlXOHH2O   720.6575188           0      0       1       2             AlXOH->OH2AlXOH
 
-
 event   1       AlX          AlXOH       720.6575188           0      0.26    3       2             AlX->AlXOH
 
 

@@ -25,7 +25,7 @@
 using namespace SPPARKS_NS;
 
 
-enum{VACANCY,O,Al,OH,AlX3,AlX2,AlX,AlXOH,AlOH2,AlOH};
+enum{VACANCY,O,Al,AlX,AlXOH,AlOH2,AlOH,OH,OHAlX3,OAlX2,OAlX,OAl,OAlX2H2O,OAlXH2O,OAlXOHH2O,OAlXOH,OAlOH2,OAlOH,QCM,EVENTS,ONE,TWO,THREE};
 
 
 /* ---------------------------------------------------------------------- */
@@ -82,15 +82,24 @@ void DiagAldTMA::init()
   for (int i = 0; i < nlist; i++) {
       if (strcmp(list[i],"O") == 0) which[i] = O;
       else if (strcmp(list[i],"Al") == 0) which[i] = Al;
-      else if (strcmp(list[i],"AlOH") == 0) which[i] = AlOH;
-      else if (strcmp(list[i],"AlOH2") == 0) which[i] = AlOH2;
-      else if (strcmp(list[i],"AlX") == 0) which[i] = AlX;
-      else if (strcmp(list[i],"AlX2") == 0) which[i] = AlX2;
-      else if (strcmp(list[i],"AlX3") == 0) which[i] = AlX3;
-      else if (strcmp(list[i],"AlXOH") == 0) which[i] = AlXOH;
+      else if (strcmp(list[i],"OAlOH") == 0) which[i] = OAlOH;
+      else if (strcmp(list[i],"OAlOH2") == 0) which[i] = OAlOH2;
+      else if (strcmp(list[i],"OAlX") == 0) which[i] = OAlX;
+      else if (strcmp(list[i],"OAlX2") == 0) which[i] = OAlX2;
+      else if (strcmp(list[i],"OHAlX3") == 0) which[i] = OHAlX3;
+      else if (strcmp(list[i],"OAlXOH") == 0) which[i] = OAlXOH;
+      else if (strcmp(list[i],"OAl") == 0) which[i] = OAl;
       else if (strcmp(list[i],"VAC") == 0) which[i] = VACANCY;
       else if (strcmp(list[i],"events") == 0) which[i] = EVENTS;
       else if (strcmp(list[i],"OH") == 0) which[i] = OH;
+      else if (strcmp(list[i],"OAlX2H2O") == 0) which[i] = OAlX2H2O;
+      else if (strcmp(list[i],"OAlXH2O") == 0) which[i] = OAlXH2O;
+      else if (strcmp(list[i],"OAlXOHH2O") == 0) which[i] = OAlXOHH2O;
+      else if (strcmp(list[i],"QCM") == 0) which[i] = QCM;
+      else if (strcmp(list[i],"AlX") == 0) which[i] = AlX;
+      else if (strcmp(list[i],"AlXOH") == 0) which[i] = AlXOH;
+      else if (strcmp(list[i],"AlOH") == 0) which[i] = AlOH;
+      else if (strcmp(list[i],"AlOH2") == 0) which[i] = AlOH2;
 
 
 
@@ -127,8 +136,8 @@ void DiagAldTMA::compute()
   int sites[800],ivalue;
 // here as well we have to consider some modification, generally it does not seem so difficult
   if (siteflag) {
-    sites[O] = 0; sites[Ta] = 0; sites[OTa] = 0;sites[VACANCY] = 0;
-    sites[TaX4O] = 0; sites[TaX] = 0; sites[TaO] = 0; sites[TaX5O] = 0;  sites[OH] = 0; sites[TaX5OH] = 0; sites[TaX3O] = 0;
+    sites[O] = 0; sites[Al] = 0; sites[OAlOH2] = 0; sites[VACANCY] = 0; sites[OAl] = 0; sites[OAlOH2] = 0; sites[AlX] = 0;sites[AlXOH] = 0; sites[AlOH] = 0; sites[AlOH2] = 0;
+    sites[OAlOH] = 0; sites[OAlX] = 0; sites[OAlX2] = 0; sites[OHAlX3] = 0;  sites[OAlXOH] = 0;  sites[OAlX2H2O] = 0;  sites[OAlXH2O] = 0;  sites[OAlXOHH2O] = 0;
     int *element = appaldTMA->element;
     int nlocal = appaldTMA->nlocal;
     for (int i = 0; i < nlocal; i++) sites[element[i]]++;
@@ -138,18 +147,26 @@ void DiagAldTMA::compute()
     if (which[i] == O) ivalue = sites[O];
     else if (which[i] == Al) ivalue = sites[Al];
     else if (which[i] == VACANCY) ivalue = sites[VACANCY];
+    else if (which[i] == OAlX) ivalue = sites[OAlX];
+    else if (which[i] == OAlX2) ivalue = sites[OAlX2];
+    else if (which[i] == OHAlX3) ivalue = sites[OHAlX3];
+    else if (which[i] == OAlOH) ivalue = sites[OAlOH];
+    else if (which[i] == OAlOH2) ivalue = sites[OAlOH2];
+    else if (which[i] == OH) ivalue = sites[OH];
     else if (which[i] == AlX) ivalue = sites[AlX];
-    else if (which[i] == AlX2) ivalue = sites[AlX2];
-    else if (which[i] == AlX3) ivalue = sites[AlX3];
+    else if (which[i] == AlXOH) ivalue = sites[AlXOH];
     else if (which[i] == AlOH) ivalue = sites[AlOH];
     else if (which[i] == AlOH2) ivalue = sites[AlOH2];
-    else if (which[i] == OH) ivalue = sites[OH];
-    else if (which[i] == AlXOH) ivalue = sites[AlXOH];
+    else if (which[i] == OAlXOH) ivalue = sites[OAlXOH];
+    else if (which[i] == OAl) ivalue = sites[OAl];
+    else if (which[i] == OAlX2H2O) ivalue = sites[OAlX2H2O];
+    else if (which[i] == OAlXH2O) ivalue = sites[OAlXH2O];
+    else if (which[i] == OAlXOHH2O) ivalue = sites[OAlXOHH2O];
     else if (which[i] == EVENTS) ivalue = appaldTMA->nevents;
     else if (which[i] == ONE) ivalue = appaldTMA->scount[index[i]];
     else if (which[i] == TWO) ivalue = appaldTMA->dcount[index[i]];
     else if (which[i] == THREE) ivalue = appaldTMA->vcount[index[i]];
-    else if (which[i] == QCM) ivalue = 16*sites[O]+181*sites[Ta]+197*sites[OTa]+226*sites[TaX]+197*sites[TaO]+377*sites[TaX4O]+422*sites[TaX5O]+17*sites[OH]+423*sites[TaX5OH]+316*sites[TaX3O]+229*sites[O3Ta];
+    else if (which[i] == QCM) ivalue = 16*sites[O]+27*sites[Al]+58*sites[OAlX]+73*sites[OAlX2]+89*sites[OHAlX3]+75*sites[OAlXOH]+60*sites[OAlOH]+77*sites[OAlOH2]+17*sites[OH]+91*sites[OAlX2H2O]+76*sites[OAlXH2O]+93*sites[OAlXOHH2O]+43*sites[OAl]+42*sites[AlX]+59*sites[AlXOH]+44*sites[AlOH]+61*sites[AlOH2];
 
     MPI_Allreduce(&ivalue,&ivector[i],1,MPI_INT,MPI_SUM,world);
   }
